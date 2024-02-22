@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb\\bin\\Debug\\net7.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb\\obj\\Debug\\net7.0\\compressed\\qivj3djhqq.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BoxingRoundIntervalWeb.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.BoxingRoundIntervalWeb.props",
+      "PackagePath": "build\\BoxingRoundIntervalWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.BoxingRoundIntervalWeb.props",
+      "PackagePath": "buildMultiTargeting\\BoxingRoundIntervalWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.BoxingRoundIntervalWeb.props",
+      "PackagePath": "buildTransitive\\BoxingRoundIntervalWeb.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

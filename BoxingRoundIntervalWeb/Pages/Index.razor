@@ -1,0 +1,378 @@
+﻿@page "/"
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: tomato;
+        color: white;
+        padding: 20px;
+        position: relative; 
+    }
+
+    .btn {
+        margin: 5px;
+    }
+
+    span {
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+
+    .control-group {
+        display: flex;
+        align-items: center;
+    }
+
+        .control-group .btn {
+            margin: 0 10px;
+        }
+
+    .title {
+        font-size: 64px;
+        margin-bottom: 20px;
+    }
+
+    #current-round-game {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+    }
+</style>
+
+<div class="container">
+    <!--display the title -->
+    <span>@TitleText</span>
+    <!--display the countdownText -->
+    <span>@CountdownText</span>
+    <!--display the fight text -->
+    <span>@FightText</span>
+    <!--display the round game text -->
+    <span>@RoundGame</span>
+    <!--display the total round game text -->
+    <span>@TotalRoundGame</span>
+    <!--display the game rest length text -->
+    <span>@GameRestLength</span>
+    <!--display the total training  text -->
+    <span>@TotalTrainingLengthMenu</span>
+
+    <span id="current-round-game">@CurrentRoundGame</span>
+
+    <!-- conntroling and adjusting the round length -->
+    @if (!disableSubtractRound || !disableAddRound)
+    {
+        <div class="control-group">
+            <span>@RoundLengthMenu</span>
+            <button class="btn" @onclick="SubtractRoundLength" disabled="@disableSubtractRound">-</button>
+            <button class="btn" @onclick="AddRoundLength" disabled="@disableAddRound">+</button>
+        </div>
+    }
+    <!-- conntroling and adjusting the rest time -->
+    @if (!disableSubtractRest || !disableAddRest)
+    {
+        <div class="control-group">
+            <span>@RestTimeLengthMenu</span>
+            <button class="btn" @onclick="SubtractRestLength" disabled="@disableSubtractRest">-</button>
+            <button class="btn" @onclick="AddRestLength" disabled="@disableAddRest">+</button>
+        </div>
+    }
+    <!-- controling and adjusting the total rounds -->
+    @if (!disableSubtractRounds || !disableAddRounds)
+    {
+        <div class="control-group">
+            <span>@RoundsMenu</span>
+            <button class="btn" @onclick="SubtractRounds" disabled="@disableSubtractRounds">-</button>
+            <button class="btn" @onclick="AddRounds" disabled="@disableAddRounds">+</button>
+        </div>
+    }
+    <!-- button to begin the training -->
+    @if (!disableBeginTraining)
+    {
+        <button class="btn" @onclick="BeginTrainingButton" disabled="@disableBeginTraining">Begin Training</button>
+    }
+
+</div>
+
+@code {
+
+
+    //values 
+    bool disableSubtractRound = false;
+    bool disableAddRound = false;
+    bool disableSubtractRest = false;
+    bool disableAddRest = false;
+    bool disableSubtractRounds = false;
+    bool disableAddRounds = false;
+    bool disableBeginTraining = false;
+    bool disableTitle = false;
+    bool isTrainingFinished = false;
+    private int countdownTime = 5;
+    private int rounds = 1;
+    private int currentRound = 1;
+    private int totalRound = 1;
+    private float fightTime = 0;
+    private float restTime = 0;
+    private float totalTrainingTime;
+    private float initialRoundTime = 0;
+    private float initialRestTime = 0;
+    private bool startedTraining = false;
+    private bool countdownSoundPlayed = false;
+    string TitleText { get; set; } = "Boxing Round Interval Web Browser Edition";
+    string CountdownText { get; set; } = "Countdown";
+    string FightText { get; set; } = "Fight";
+    string RoundGame { get; set; } = "Round Game";
+    string TotalRoundGame { get; set; } = "Total Round Game";
+    string GameRestLength { get; set; } = "Game Rest Length";
+    string TotalTrainingLengthMenu { get; set; } = "Total Training: ";
+    string RoundLengthMenu { get; set; } = "Round Length:";
+    string RestTimeLengthMenu { get; set; } = "Rest Time Length:";
+    string RoundsMenu { get; set; } = "Rounds:";
+    string CurrentRoundGame { get; set; } = "Current Round:";
+    //on the start of the application
+    protected override void OnInitialized()
+    {
+        DisableGameTexts();
+        MenuValues();
+        base.OnInitialized();
+    }
+   
+    //button that begins the training on click
+    void BeginTrainingButton()
+    {
+        //start the training
+
+        startedTraining = true;
+        currentRound = 1;
+        initialRoundTime = fightTime;
+        initialRestTime = restTime;
+        totalRound = rounds;
+        BeginCountdown();
+        DisableMenuTexts();
+        DisableButtons();
+
+    }
+    //updating the total training time
+    private void TotalTrainingTime()
+    {
+        totalTrainingTime = currentRound * (fightTime + restTime);
+        int minutes = (int)(totalTrainingTime / 60);
+        int seconds = (int)(totalTrainingTime % 60);
+        TotalTrainingLengthMenu = "Total Training " + ($": {minutes:00}:{seconds:00}");
+    }
+    //disable all the starting buttons and the title 
+
+    private void DisableButtons()
+    {
+        disableTitle = true;
+        disableSubtractRound = true;
+        disableAddRound = true;
+        disableSubtractRest = true;
+        disableAddRest = true;
+        disableSubtractRounds = true;
+        disableAddRounds = true;
+        disableBeginTraining = true;
+    }
+
+    //disable all the game texts
+    private void DisableGameTexts()
+    {
+        CountdownText = "";
+        GameRestLength = "";
+        RoundGame = "";
+        TotalRoundGame = "";
+        FightText = "";
+        RoundsMenu = "";
+        CurrentRoundGame = "";
+    }
+    //disable all the menu texts
+    private void DisableMenuTexts()
+    {
+        TitleText = "";
+        RestTimeLengthMenu = "";
+        RoundLengthMenu = "";
+        TotalTrainingLengthMenu = "";
+        RoundsMenu = "";
+
+    }
+    //set the menu values
+
+    private void MenuValues()
+    {
+        TotalTrainingLengthMenu = "Total Training : 00:00";
+        RoundLengthMenu = "Round Length : 00:00";
+        RestTimeLengthMenu = "Rest Time : 00:00";
+        RoundsMenu = "Rounds: " + 1.ToString();
+    }
+    //subsctract round length
+    private void SubtractRoundLength()
+    {
+
+        fightTime -= 5f;
+        if (fightTime < 0f)
+        {
+            fightTime = 0f;
+        }
+        int minutes = (int)(fightTime / 60);
+        int seconds = (int)(fightTime % 60);
+        RoundLengthMenu = "Round Length " + ($": {minutes:00}:{seconds:00}");
+        TotalTrainingTime();
+    }
+    //add round length
+    private void AddRoundLength()
+    {
+        fightTime += 5f;
+        if (fightTime < 0f)
+        {
+            fightTime = 0f;
+        }
+        int minutes = (int)(fightTime / 60);
+        int seconds = (int)(fightTime % 60);
+        RoundLengthMenu = "Round Length " + ($": {minutes:00}:{seconds:00}");
+        TotalTrainingTime();
+    }
+    //substract rest length
+    private void SubtractRestLength()
+    {
+        restTime -= 5f;
+        if (restTime < 0f)
+        {
+            restTime = 0f;
+        }
+        int minutes = (int)(restTime / 60);
+        int seconds = (int)(restTime % 60);
+
+        RestTimeLengthMenu = "Rest Time " + ($": {minutes:00}:{seconds:00}");
+        TotalTrainingTime();
+    }
+    // add rest length
+    private void AddRestLength()
+    {
+        restTime += 5f;
+        if (restTime < 0f)
+        {
+            restTime = 0f;
+        }
+        int minutes = (int)(restTime / 60);
+        int seconds = (int)(restTime % 60);
+
+        RestTimeLengthMenu = "Rest Time " + ($": {minutes:00}:{seconds:00}");
+        TotalTrainingTime();
+    }
+    //subsctract rounds
+    private void SubtractRounds()
+    {
+        rounds -= 1;
+        rounds = (int)MathF.Max(1, rounds);
+        RoundsMenu = "Rounds:  " + rounds;
+        TotalTrainingTime();
+
+    }
+    //add rounds
+    private void AddRounds()
+    {
+        rounds += 1;
+        currentRound = (int)MathF.Max(1, rounds);
+        RoundsMenu = "Rounds:  " + rounds;
+        TotalTrainingTime();
+
+    }
+
+    //begin countdown
+    private async Task BeginCountdown()
+    {
+        while (countdownTime > 0)
+        {
+            CountdownText = "Get Ready! " + ($": {countdownTime / 60:00}:{countdownTime % 60:00}");
+            countdownTime--;
+            StateHasChanged();
+            await Task.Delay(1000);
+        }
+
+        if (countdownTime == 0)
+        {
+            BeginRoundCountdown();
+            CountdownText = "";
+            StateHasChanged();
+        }
+    }
+
+    //begin round countdown
+    private async Task BeginRoundCountdown()
+    {
+
+        while (fightTime > 0)
+        {
+            UIFight();
+            fightTime--;
+            StateHasChanged();
+            await Task.Delay(1000);
+        }
+
+        if (fightTime == 0&&!isTrainingFinished)
+        {
+            FightText = "";
+            fightTime = initialRoundTime;
+            await BeginRestCountdown();
+
+
+            await Task.Delay(100);
+            StateHasChanged();
+        }
+        else if(fightTime==0 && currentRound == totalRound &&!isTrainingFinished)
+        {
+            isTrainingFinished = true;
+            FightText = "Completed the Training";
+        }
+    }
+    //begin rest countdown
+    private async Task BeginRestCountdown()
+    {
+        while (restTime > 0)
+        {
+            UpdateUIRest();
+            restTime--;
+            InvokeAsync(StateHasChanged); 
+            await Task.Delay(1000); 
+        }
+
+        if (restTime == 0)
+        {
+            currentRound += 1;
+            GameRestLength = "";
+            restTime = initialRestTime;
+            if (currentRound <= totalRound)
+            {
+              
+                UIFight();
+                InvokeAsync(StateHasChanged); 
+
+              
+                await BeginRoundCountdown();
+            }
+            else
+            {
+                InvokeAsync(StateHasChanged); 
+            }
+        }
+    }
+    //update ui for round fighting
+    private void UIFight()
+    {
+        FightText = "Fight " + ($": {fightTime / 60:00}:{fightTime % 60:00}");
+        CurrentRoundGame ="Current Round "+ currentRound+ "/ "+totalRound;
+    }
+    //update ui during rest
+    private void UpdateUIRest()
+    {
+        GameRestLength = "Rest Time " + ($": {restTime / 60:00}:{restTime % 60:00}");
+        FightText = "";
+        CurrentRoundGame = "Current Round " + currentRound + "/ " + totalRound;
+    }
+
+  
+}
+   
