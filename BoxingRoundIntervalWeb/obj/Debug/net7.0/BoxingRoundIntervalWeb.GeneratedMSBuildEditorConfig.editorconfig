@@ -13,27 +13,27 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = BoxingRoundIntervalWeb
 build_property.RootNamespace = BoxingRoundIntervalWeb
-build_property.ProjectDir = C:\Users\vasil\Desktop\C#\BoxingRoundIntervalWeb\BoxingRoundIntervalWeb\
+build_property.ProjectDir = C:\Users\vasil\Desktop\C#\BoxingRoundIntervalRazor\Boxing-Round-Interval-Blazor-Web-Assembly-App\BoxingRoundIntervalWeb\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\vasil\Desktop\C#\BoxingRoundIntervalWeb\BoxingRoundIntervalWeb
+build_property.MSBuildProjectDirectory = C:\Users\vasil\Desktop\C#\BoxingRoundIntervalRazor\Boxing-Round-Interval-Blazor-Web-Assembly-App\BoxingRoundIntervalWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/vasil/Desktop/C\#/BoxingRoundIntervalWeb/BoxingRoundIntervalWeb/App.razor]
+[C:/Users/vasil/Desktop/C\#/BoxingRoundIntervalRazor/Boxing-Round-Interval-Blazor-Web-Assembly-App/BoxingRoundIntervalWeb/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vasil/Desktop/C\#/BoxingRoundIntervalWeb/BoxingRoundIntervalWeb/MainLayout.razor]
+[C:/Users/vasil/Desktop/C\#/BoxingRoundIntervalRazor/Boxing-Round-Interval-Blazor-Web-Assembly-App/BoxingRoundIntervalWeb/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vasil/Desktop/C\#/BoxingRoundIntervalWeb/BoxingRoundIntervalWeb/Pages/Index.razor]
+[C:/Users/vasil/Desktop/C\#/BoxingRoundIntervalRazor/Boxing-Round-Interval-Blazor-Web-Assembly-App/BoxingRoundIntervalWeb/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vasil/Desktop/C\#/BoxingRoundIntervalWeb/BoxingRoundIntervalWeb/_Imports.razor]
+[C:/Users/vasil/Desktop/C\#/BoxingRoundIntervalRazor/Boxing-Round-Interval-Blazor-Web-Assembly-App/BoxingRoundIntervalWeb/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

@@ -7,14 +7,22 @@
         align-items: center;
         justify-content: center;
         height: 100vh;
-        background-color: tomato;
-        color: white;
+        background-color: mediumpurple;
+        color: black;
         padding: 20px;
         position: relative; 
     }
 
     .btn {
-        margin: 5px;
+        margin: 15px;
+        padding: 10px 20px; 
+        font-size: 24px; 
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+        color: black;
+        cursor: pointer;
+        transition: background-color 0.3s;
     }
 
     span {
@@ -40,7 +48,7 @@
         position: absolute;
         top: 20px;
         right: 20px;
-        font-size: 24px;
+        font-size: 36px;
     }
 </style>
 
@@ -139,7 +147,7 @@
         MenuValues();
         base.OnInitialized();
     }
-   
+
     //button that begins the training on click
     void BeginTrainingButton()
     {
@@ -322,10 +330,13 @@
             await Task.Delay(100);
             StateHasChanged();
         }
-        else if(fightTime==0 && currentRound == totalRound &&!isTrainingFinished)
+        if(fightTime ==0 && currentRound == totalRound &&!isTrainingFinished)
         {
             isTrainingFinished = true;
+            ResetGame();
             FightText = "Completed the Training";
+            await Task.Delay(2000);
+            StateHasChanged();
         }
     }
     //begin rest countdown
@@ -346,11 +357,11 @@
             restTime = initialRestTime;
             if (currentRound <= totalRound)
             {
-              
+
                 UIFight();
                 InvokeAsync(StateHasChanged); 
 
-              
+
                 await BeginRoundCountdown();
             }
             else
@@ -373,6 +384,32 @@
         CurrentRoundGame = "Current Round " + currentRound + "/ " + totalRound;
     }
 
-  
+
+    private void ResetGame()
+    {
+        disableSubtractRound = false;
+        disableAddRound = false;
+        disableSubtractRest = false;
+        disableAddRest = false;
+        disableSubtractRounds = false;
+        disableAddRounds = false;
+        disableBeginTraining = false;
+        disableTitle = false;
+        isTrainingFinished = false;
+        countdownTime = 5;
+        rounds = 1;
+        currentRound = 1;
+        totalRound = 1;
+        fightTime = 0;
+        restTime = 0;
+        totalTrainingTime = 0;
+        initialRoundTime = 0;
+        initialRestTime = 0;
+        startedTraining = false;
+        countdownSoundPlayed = false;
+
+        MenuValues();
+    }
+
 }
    

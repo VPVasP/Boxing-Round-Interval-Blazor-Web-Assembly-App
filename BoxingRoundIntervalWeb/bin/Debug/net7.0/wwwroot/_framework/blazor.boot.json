@@ -1,7 +1,7 @@
 {
   "entryAssembly": "BoxingRoundIntervalWeb",
   "resources": {
-    "hash": "sha256-DLOLuWQdyzMztbBl2HGsN6VEUDn5bfY1rtx0bZvk+Iw=",
+    "hash": "sha256-9mCagTRAdinmEeHPVSWeU9wqxFiVEPMrZ4IFPgcwcX4=",
     "runtime": {
       "dotnet.7.0.14.9pnemosrb5.js": "sha256-YWGUknGRzP/fgO6YjvCJKPVQNZAPEd6ll+rHfQEIW+I=",
       "dotnet.timezones.blat": "sha256-t5xviiOQTfAsF0UDhmcyalKiaehUmf/sqJl97tmPM0M=",
@@ -202,10 +202,10 @@
       "mscorlib.dll": "sha256-YcsJInaT/kw3Vrm+SESegPxvT/Lr9RE6rE/KnxWIIc0=",
       "netstandard.dll": "sha256-TztlSRjADgiEABbiAMdWZpHrUVd8wnRtQRAvlwmRP/4=",
       "System.Private.CoreLib.dll": "sha256-BAhrZ8Zg3cJKQipxdzqQo+9jtPkOkRx1ou3oIhDohtk=",
-      "BoxingRoundIntervalWeb.dll": "sha256-Q59xhLSSBjsxC37tJTaidql1Ui7EBLbiA1UkWy5kw+k="
+      "BoxingRoundIntervalWeb.dll": "sha256-DdRGSvu+0a7Maec0qDBG9ry4O/ETyORaBNBy/PGpKBs="
     },
     "pdb": {
-      "BoxingRoundIntervalWeb.pdb": "sha256-hLlA8DuOE+T3AmWaS8MD9K9iq/Q7L9IajnNQQINcW9Y="
+      "BoxingRoundIntervalWeb.pdb": "sha256-p4pwx27gMGM/w6BWWktumFKyKKXegbcd9LzxKaYbknY="
     },
     "runtimeAssets": {
       "dotnet.wasm": {

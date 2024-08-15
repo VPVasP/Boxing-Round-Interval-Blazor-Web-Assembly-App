@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "p5BbjnC1xbKtH5fYi1grarqvsXbE31SPniCgyYXzAUUj4NzJKlomeAvoHeCCkn1WYAqncG0+QXJhUKT9Tg5QIw==",
+  "dgSpecHash": "jRTXehsGVgr469A/gQVq3S/JRAj2XlZLyaGPEETR99FoLVfhFzCKd76+/IccwH/qcFEobGU0gmmkSNpbjxIJog==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb.csproj",
+  "projectFilePath": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalRazor\\Boxing-Round-Interval-Blazor-Web-Assembly-App\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vasil\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.13\\microsoft.aspnetcore.authorization.7.0.13.nupkg.sha512",
     "C:\\Users\\vasil\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.13\\microsoft.aspnetcore.components.7.0.13.nupkg.sha512",

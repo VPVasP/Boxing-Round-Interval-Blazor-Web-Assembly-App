@@ -1957,19 +1957,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vasil\\.nuget\\packages\\": {}
+    "C:\\Users\\vasil\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb.csproj",
+      "projectUniqueName": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalRazor\\Boxing-Round-Interval-Blazor-Web-Assembly-App\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb.csproj",
       "projectName": "BoxingRoundIntervalWeb",
-      "projectPath": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb.csproj",
+      "projectPath": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalRazor\\Boxing-Round-Interval-Blazor-Web-Assembly-App\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb.csproj",
       "packagesPath": "C:\\Users\\vasil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalWeb\\BoxingRoundIntervalWeb\\obj\\",
+      "outputPath": "C:\\Users\\vasil\\Desktop\\C#\\BoxingRoundIntervalRazor\\Boxing-Round-Interval-Blazor-Web-Assembly-App\\BoxingRoundIntervalWeb\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\vasil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1977,6 +1982,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

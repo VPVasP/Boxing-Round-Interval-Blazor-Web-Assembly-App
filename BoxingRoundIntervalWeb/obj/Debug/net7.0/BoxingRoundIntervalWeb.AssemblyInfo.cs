@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BoxingRoundIntervalWeb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4eb2ff31fea3ec8d87255bf0d33d0572c7b5ada0")]
 [assembly: System.Reflection.AssemblyProductAttribute("BoxingRoundIntervalWeb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BoxingRoundIntervalWeb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
